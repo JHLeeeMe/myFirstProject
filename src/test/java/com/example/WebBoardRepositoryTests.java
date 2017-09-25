@@ -1,4 +1,4 @@
-package org.zerock;
+package com.example;
 
 import java.util.stream.IntStream;
 
@@ -12,9 +12,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.zerock.domain.WebBoard;
-import org.zerock.persistence.WebBoardRepository;
-import org.zerock.vo.PageMaker;
+
+import com.example.domain.WebBoard;
+import com.example.persistence.WebBoardRepository;
+import com.example.vo.PageMaker;
 
 import lombok.extern.java.Log;
 

@@ -1,4 +1,4 @@
-package org.zerock.vo;
+package com.example.vo;
 
 import java.util.ArrayList;
 import java.util.List;

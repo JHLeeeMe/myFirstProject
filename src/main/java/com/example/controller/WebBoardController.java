@@ -1,4 +1,4 @@
-package org.zerock.controller;
+package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.domain.WebBoard;
-import org.zerock.persistence.WebBoardRepository;
-import org.zerock.vo.PageMaker;
-import org.zerock.vo.PageVO;
+
+import com.example.domain.WebBoard;
+import com.example.persistence.WebBoardRepository;
+import com.example.vo.PageMaker;
+import com.example.vo.PageVO;
 
 import lombok.extern.java.Log;
 

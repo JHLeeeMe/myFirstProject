@@ -1,4 +1,4 @@
-package org.zerock.vo;
+package com.example.vo;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
