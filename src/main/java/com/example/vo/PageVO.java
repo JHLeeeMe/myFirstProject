@@ -4,6 +4,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import lombok.ToString;
+
+@ToString
 public class PageVO {
 
 	private static final int DEFAULT_SIZE = 10;
