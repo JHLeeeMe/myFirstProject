@@ -58,7 +58,7 @@ public class PageVO {
 
 		this.size = size < DEFAULT_SIZE || size > DEFAULT_MAX_SIZE ? DEFAULT_SIZE : size;
 	}
-
+	
 	public Pageable makePageable(int direction, String... props) {
 
 		Sort.Direction dir = direction == 0 ? Sort.Direction.DESC : Sort.Direction.ASC;
