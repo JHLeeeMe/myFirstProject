@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.domain.Dept;
 import com.example.domain.Emp;
+import com.example.persistence.DeptRepository;
 import com.example.persistence.EmpRepository;
 import com.example.vo.PageMaker;
 import com.example.vo.PageVO;
@@ -26,6 +28,8 @@ public class EmpsController {
 
 	@Autowired
 	private EmpRepository repo;
+	@Autowired
+	private DeptRepository deptRepo;
 
 	// return 없으면 이것을 논리적인 view로 봄.
 	@GetMapping("/register")
@@ -78,13 +82,19 @@ public class EmpsController {
 		repo.findById(emp.getEmpno()).ifPresent(origin -> {
 
 			origin.setEname(emp.getEname());
-//			origin.setLoc(emp.get);
-
+			origin.setGender(emp.getGender());
+			origin.setJob(emp.getJob());
+			origin.setHiredate(emp.getHiredate());
+			origin.setSal(emp.getSal());
+			origin.setComm(emp.getComm());
+			
 			repo.save(origin);
+			
 			
 			rttr.addFlashAttribute("msg", "success");
 			rttr.addAttribute("empno", origin.getEmpno());
 		});
+		
 
 		// 페이징과 검색했던 결과로 이동하는 경우
 		rttr.addAttribute("page", vo.getPage());

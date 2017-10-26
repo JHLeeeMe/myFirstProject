@@ -10,19 +10,71 @@
     <form id='f1'>
 
 		<div class="form-group">
-			<label>Deptno</label> 
-			<input class="form-control" name="deptno" th:value="${vo.deptno}" readonly="readonly" />
+			<label>직원번호</label> 
+			<input class="form-control" name="empno" th:value="${vo.empno}" readonly="readonly" />
 		</div>
-
+		
 		<div class="form-group">
-			<label>Dname</label> 
-			<input class="form-control" name="dname" th:value="${vo.dname}" />
-			<p class="help-block">dname text here.</p>
+			<label>직원이름</label> 
+			<input class="form-control" name="ename" th:value="${vo.ename}" />
 		</div>
-
+		
 		<div class="form-group">
-			<label>Loc</label>
-			<textarea class="form-control" rows="3" name='loc' th:text="${vo.loc}"></textarea>
+			<label>성별</label> 
+			<select name="gender" th:value="${vo.gender}">
+				<option selected="selected">[[${vo.gender}]]</option>
+				<option th:if="${vo.gender != 'M'}">M</option>
+				<option th:if="${vo.gender != 'F'}">F</option>
+			</select>
+			
+			<label>직급</label>
+			<select name="job" th:value="${vo.job}">
+				<option selected="selected">[[${vo.job}]]</option>
+				<option th:if="${vo.job != '부장'}">부장</option>
+				<option th:if="${vo.job != '차장'}">차장</option>
+				<option th:if="${vo.job != '과장'}">과장</option>
+				<option th:if="${vo.job != '대리'}">대리</option>
+				<option th:if="${vo.job != '사원'}">사원</option>
+			</select>
+			
+			<label>부서번호</label>
+			<select name="deptno" th:value="${vo.dept?.deptno}">
+				<option selected="selected">[[${vo.dept?.deptno}]]</option>
+				<option th:if="${vo.dept?.deptno != 10}">10</option>
+				<option th:if="${vo.dept?.deptno != 20}">20</option>
+				<option th:if="${vo.dept?.deptno != 30}">30</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label>입사일</label> 
+			<input class="form-control" name="hiredate" th:value="${vo.hiredate}" />
+			<p class="help-block">mm/dd/yyyy</p>
+		</div>
+		
+		<div class="form-group">
+			<label>급여</label> 
+			<input class="form-control" name="sal" th:value="${vo.sal}" />
+		</div>
+		
+		<div class="form-group">
+			<label>보너스</label>
+			<div th:if="${vo.comm} != null"> 
+				<input class="form-control" name="comm" th:value="${vo.comm}" />
+			</div>
+			<div th:if="${vo.comm} == null">
+				<input class="form-control" name="comm" th:value="${vo.comm}" readonly="readonly"/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label>사수번호</label> 
+			<input class="form-control" name="mgr" th:value="${vo.mgr?.empno}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>부서번호</label> 
+			<input class="form-control" name="deptno" th:value="${vo.dept?.deptno}" readonly="readonly" />
 		</div>
 
 		<input type='hidden' name="page" th:value="${pageVO.page}">
@@ -42,7 +94,7 @@
 			                    size=${pageVO.size}, 
 			                    type=${pageVO.type}, 
 			                    keyword=${pageVO.keyword},
-			                    deptno = ${vo.deptno}
+			                    deptno = ${vo.dept?.deptno}
 			             			)}" 
 			     class="btn btn-primary">Cancel & Go List</a> 
 		</div>

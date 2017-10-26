@@ -40,10 +40,9 @@
 				<tbody>
 					<tr class="odd gradeX" th:each="board:${result.content}">
 						<td>[[${board.empno}]]</td>
-						<td>[[${board.ename}]]</td>
+						<td><a th:href='${board.empno}' class='boardLink'>[[${board.ename}]]</a></td>
 						<td>[[${board.gender}]]</td>
 						<td>[[${board.job}]]</td>
-<!-- 						<td><a th:href='${board.empno}' class='boardLink'>[[${board.ename}]]</a></td> -->
 						<td>[[${#dates.format(board.hiredate, 'yyyy-MM-dd')}]]</td>
 						<td>[[${board.sal}]]</td>
 						<td>[[${board.comm}]]</td>
