@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.vo.PageVO;
+
 import lombok.extern.java.Log;
 
 @Controller
@@ -19,7 +21,7 @@ import lombok.extern.java.Log;
 public class HiveController {
 
 	@GetMapping("/yeardelay")
-	public String yeardelay(Model model) throws ClassNotFoundException, SQLException {
+	public String yeardelay(PageVO vo,Model model) throws ClassNotFoundException, SQLException {
 		log.info("/hive/yeardelay...");
 		
 		/*

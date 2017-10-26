@@ -1,10 +1,8 @@
 package com.example.domain;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -39,12 +37,13 @@ public class Emp {
 					  valueColumnName="nextval",
 					  allocationSize=10, initialValue=7000)
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="idGen")
-	private Integer empno;
+	private Long empno;
 	private String ename;
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	private String job;
 	
+	//id에 걸린다.
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="mgr")
 	private Emp mgr;

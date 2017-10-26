@@ -1,0 +1,57 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/boards}">
+
+<div layout:fragment="content">
+
+	<div class="panel-heading">View Page</div>
+	<div class="panel-body">
+
+
+		<div class="form-group">
+			<label>Deptno</label> <input class="form-control" name="deptno"
+				th:value="${vo.deptno}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>Dname</label> <input class="form-control" name="dname"
+				th:value="${vo.dname}" readonly="readonly" />
+			<p class="help-block">Dname text here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>Loc</label>
+			<textarea class="form-control" rows="3" name='loc'
+				th:text="${vo.loc}" readonly="readonly"></textarea>
+		</div>
+
+		<div class="pull-right">
+			<a th:href="@{modify(page=${pageVO.page}, 
+			                		size=${pageVO.size}, 
+			                		type=${pageVO.type}, 
+			                		keyword=${pageVO.keyword},
+			                		deptno =${vo.deptno}
+			     					)}" 
+			     class="btn btn-default">Modify/Delete</a> 
+			             
+			<a th:href="@{list(page=${pageVO.page}, 
+			               	 size=${pageVO.size}, 
+			               	 type=${pageVO.type}, 
+			               	 keyword=${pageVO.keyword},
+			               	 bno = ${vo.deptno}
+			             		 )}" 
+			     class="btn btn-primary">Go List</a> 
+		</div>
+
+	</div>
+
+</div>
+<!--  end fragment -->
+
+<th:block layout:fragment="script">
+
+	<script th:inline="javascript">
+		
+	</script>
+
+</th:block>

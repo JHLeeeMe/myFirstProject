@@ -33,7 +33,7 @@ public class PageMaker<T> {
 		
 		this.currentPage = result.getPageable();
 		
-		this.currentPageNum = currentPage.getPageNumber() + 1; 
+		this.currentPageNum = currentPage.getPageNumber() + 1;
 		
 		this.totalPageNum = result.getTotalPages();
 		
@@ -46,11 +46,11 @@ public class PageMaker<T> {
 		
 		int tempEndNum = (int)(Math.ceil(this.currentPageNum/10.0)* 10);
 		
-		int startNum = tempEndNum -9; 
+		int startNum = tempEndNum -9;
 		
 		Pageable startPage = this.currentPage;
 		
-		//move to start Pageble 
+		//move to start Pageble
 		for(int i = startNum; i < this.currentPageNum; i++){
 			startPage = startPage.previousOrFirst();
 		}

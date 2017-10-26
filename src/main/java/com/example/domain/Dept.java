@@ -2,7 +2,6 @@ package com.example.domain;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,12 +14,6 @@ import javax.persistence.TableGenerator;
 import lombok.Data;
 import lombok.ToString;
 
-/*
- * 1. @OneToOne
- * 2. @OneToMany
- * 3. @ManyToOne
- * 4. @ManyToMany
- */
 @Entity
 @Table(name="tbl_depts")
 @Data
@@ -28,12 +21,7 @@ import lombok.ToString;
 public class Dept {
 	
 	@Id
-	@TableGenerator(name="idGen", table="id_gen", 
-					  pkColumnName="seq_name",
-					  valueColumnName="nextval",
-					  allocationSize=10, initialValue=100)
-	@GeneratedValue(strategy=GenerationType.TABLE, generator="idGen")
-	Integer deptno;
+	Long deptno;
 	String dname;
 	String loc;
 	
