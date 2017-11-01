@@ -25,9 +25,9 @@ import com.querydsl.core.types.Predicate;
 import lombok.extern.java.Log;
 
 @Controller
-@RequestMapping("/emps/")
+@RequestMapping("/emp/")
 @Log
-public class EmpsController {
+public class EmpController {
 
 	@Autowired
 	private EmpRepository repo;
@@ -41,7 +41,7 @@ public class EmpsController {
 		vo.setHiredate(new Date(00/01/1970));
 		vo.setSal(new BigDecimal(100));
 
-		return "thymeleaf/emps/register";
+		return "jsp/emp/register";
 	}
 
 	@PostMapping("/register")
@@ -57,7 +57,7 @@ public class EmpsController {
 		
 		rttr.addFlashAttribute("msg", "success");
 
-		return "redirect:/emps/list";
+		return "redirect:/emp/list";
 	}
 
 	@GetMapping("/view")
@@ -67,7 +67,7 @@ public class EmpsController {
 
 		repo.findById(empno).ifPresent(board -> model.addAttribute("vo", board));
 
-		return "thymeleaf/emps/view";
+		return "jsp/emp/view";
 
 	}
 
@@ -78,7 +78,7 @@ public class EmpsController {
 
 		repo.findById(empno).ifPresent(board -> model.addAttribute("vo", board));
 
-		return "thymeleaf/emps/modify";
+		return "jsp/emp/modify";
 	}
 
 	@PostMapping("/modify")
@@ -110,7 +110,7 @@ public class EmpsController {
 		rttr.addAttribute("type", vo.getType());
 		rttr.addAttribute("keyword", vo.getKeyword());
 
-		return "redirect:/emps/view";
+		return "redirect:/emp/view";
 	}
 
 	@PostMapping("/delete")
@@ -128,7 +128,7 @@ public class EmpsController {
 		rttr.addAttribute("type", vo.getType());
 		rttr.addAttribute("keyword", vo.getKeyword());
 
-		return "redirect:/emps/list";
+		return "redirect:/emp/list";
 	}
 
 	@GetMapping("/list")
@@ -147,7 +147,7 @@ public class EmpsController {
 //		model.addAttribute("pageMaker", new PageMaker<Dept>(result1));
 		model.addAttribute("pageMaker", new PageMaker<Emp>(result));
 
-		return "thymeleaf/emps/list";
+		return "jsp/emp/list";
 
 	}
 

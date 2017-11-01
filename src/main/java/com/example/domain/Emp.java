@@ -31,12 +31,14 @@ public class Emp {
 		M, F;
 	}
 	
-	@Id
+	
 	@TableGenerator(name="idGen", table="id_gen", 
 					  pkColumnName="seq_name",
 					  valueColumnName="nextval",
-					  allocationSize=10, initialValue=7000)
+					  allocationSize=1, initialValue=1)
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="idGen")
+	private Long bno;
+	@Id
 	private Long empno;
 	private String ename;
 	@Enumerated(EnumType.STRING)

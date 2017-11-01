@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset=UTF-8>
-	<title>board list.jsp</title>
+	<title>dept list.jsp</title>
 
 	<!-- For Content-Assist -->
 	<c:if test="${false}">
@@ -16,7 +16,7 @@
 	</c:if>
 </head>
 <body>
-	<div class="panel-heading">Board List Page</div>
+	<div class="panel-heading">Dept List Page</div>
 
 	<div class="panel-body">
 		<c:set var="result" value="${pageMaker.result}"/>
@@ -24,18 +24,17 @@
 			<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 				<thead>
 					<tr>
-						<th>BNO</th>
-						<th>TITLE</th>
-						<th>WRITER</th>
-						<th>REGDATE</th>
+						<th>부서번호</th>
+						<th>부서이름</th>
+						<th>지역</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="board" items="${result.content}">
+					<c:forEach var="dept" items="${result.content}">
 						<tr class="odd gradeX">
-							<td>${board.bno}</td>
-							<td><a href='${board.bno}' class='boardLink'>${board.title}</a></td>
-							<td>${board.writer}</td>
+							<td>${dept.deptno}</td>
+							<td><a href='${dept.deptno}' class='boardLink'>${dept.dname}</a></td>
+							<td>${dept.loc}</td>
 							<td class="center">
 								<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd" />
 							</td>
@@ -56,7 +55,7 @@
 				<button id='searchBtn'>Search</button>
 				
 				<div class="panel-body pull-right">
-					<h3><a class="label label-default " href="/board/register">Register</a></h3>
+					<h3><a class="label label-default " href="/dept/register">Register</a></h3>
 				</div>
 			</div>
 		</div>

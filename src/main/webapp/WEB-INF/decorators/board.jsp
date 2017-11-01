@@ -5,6 +5,44 @@
 
 <!DOCTYPE html>
 <html>
+
+<style>
+#div_root {
+	width: 1000px;
+	margin: 0px auto;
+	margin-top: 20px;
+	padding: 20px;
+	border: 1px solid #bcbcbc;
+}
+#div_top {
+	padding: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #bcbcbc;
+}
+#div_side {
+	width: 260px;
+	padding: 20px;
+	margin-bottom: 20px;
+	float: left;
+	border: 1px solid #bcbcbc;
+}
+#div_center {
+	width: 680px;
+	padding: 20px;
+	margin-bottom: 20px;
+	float: right;
+	border: 1px solid #bcbcbc
+}
+#div_bottom {
+	clear: both;
+	padding: 20px;
+	border: 1px solid #bcbcbc;
+}
+#table {
+	font-size: large;
+}
+</style>
+
 <head>
 
 	<meta charset="UTF-8">
@@ -23,20 +61,73 @@
 	
 	<!-- content assist를 위함. -->
 	<c:if test="${false}">
-	<link rel="stylesheet" href="../css/bootstrap.css">
-	<link rel="stylesheet" href="../css/animate.css">
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../css/animate.css">
 	</c:if>
 	
 </head>
-<body calss="container">
-	<header class="page-header">
-		Header
-	</header>
+<body>
+	<div id="div_root">
 	
-	<section class="panel panel-default">
-			<sitemesh:write property="body"/> <!-- 데코대상의 body가 들어옴 -->
-	</section>
+		<div id="div_top" align="center">
+			<h1>
+				<b>PORTFOLIO</b>
+			</h1>
+				<h5>Spring MVC + JPA</h5>
+		</div>
+		
+		<div id="div_side">
+			<table id="table">
+				<thead>
+					<tr>
+						<th>
+							<h1>
+								<b>VERSION</b>
+							</h1>
+						<th>
+					</tr>
+					<tr style="height: 40px;">
+						<td><a href="http://localhost:8080/board/list">JSP</a></td>
+					</tr>
+					<tr style="height: 40px;">
+						<td><a href="http://localhost:8080/boards/list">Thymeleaf</a></td>
+					</tr>
+					<tr>
+						<th>
+						<hr style="border: 1px solid #bcbcbc; width: 210px;">
+							<h1><b>TABLE</b></h1>
+						<th>
+					</tr>
+					<tbody>
+					<tr style="height: 40px;"> 
+						<td><a href="http://localhost:8080/board/list">Board</a></td>
+					</tr>
+					<tr style="height: 40px;">
+						<td><a href="http://localhost:8080/city/list">City</a></td>
+					</tr>
+					<tr style="height: 40px;">
+						<td><a href="http://localhost:8080/country/list">Country</a></td>
+					</tr>
+					<tr style="height: 40px;">
+						<td><a href="http://localhost:8080/dept/list">Dept</a></td>
+					</tr>
+					<tr style="height: 40px;">
+						<td><a href="http://localhost:8080/emp/list">Emp</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div id="div_center" class="animated fadeIn"> 
+			<sitemesh:write property="body" />
+		</div>
+
+		<!-- SiteMesh 와 같은 방식 -->
+		<div id="div_bottom" align="center">
+			<h3>Made By</h3>
+			<h5>-- Lee Jung Hwan --</h5>
+		</div>
+	</div>
 	
-	<footer>Footer</footer>
 </body>
 </html>

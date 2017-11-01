@@ -1,0 +1,153 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/boards}">
+
+<!-- layout1.html과 합쳐지기 위한 코딩 -->
+<div layout:fragment="content">
+
+	<div class="panel-heading">Modify Page</div>
+	<div class="panel-body">
+
+    <form id='f1'>
+
+		<div class="form-group">
+		<label>Code</label> <input class="form-control" name="code"
+			th:value="${vo.code}" readonly="readonly"/>
+			<p class="help-block">Code text here. ( PRIMARY KEY )</p>
+		</div>
+
+		<div class="form-group">
+			<label>Capital</label> <input class="form-control" name="capital"
+				th:value="${vo.capital}"/>
+				<p class="help-block">Capital number here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>Code2</label> <input class="form-control" name="code2"
+				th:value="${vo.code2}"/>
+				<p class="help-block">Code2 text here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>Continent</label> <input class="form-control" name="continent"
+				th:value="${vo.continent}"/>
+				<p class="help-block">Continent text here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>Gnp</label> <input class="form-control" name="gnp"
+				th:value="${vo.gnp}"/>
+				<p class="help-block">Gnp number here.</p>
+		</div>
+		
+		<div class="form-group">
+			<label>GnpOld</label> <input class="form-control" name="gnpold"
+				th:value="${vo.gnpold}"/>
+				<p class="help-block">GnpOld number here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>GovernmentForm</label> <input class="form-control" name="governmentform"
+				th:value="${vo.governmentform}"/>
+				<p class="help-block">GovernmentForm text here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>HeadOfState</label> <input class="form-control" name="headofstate" 
+				th:value="${vo.headofstate}"/>
+				<p class="help-block">HeadOfState text here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>LocalName</label> <input class="form-control" name="localname" 
+				th:value="${vo.localname}"/>
+				<p class="help-block">LocalName text here.</p>
+		</div>
+		
+		<div class="form-group">
+			<label>Name</label> <input class="form-control" name="name" 
+				th:value="${vo.name}"/>
+				<p class="help-block">Name text here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>LifeExpectancy</label> <input class="form-control" name="lifeexpectancy"
+				th:value="${vo.lifeexpectancy}"/>
+				<p class="help-block">LifeExpectancy number here.</p>
+		</div>
+		
+		<div class="form-group">
+			<label>Population</label> <input class="form-control" name="population"
+				th:value="${vo.population}"/>
+				<p class="help-block">Population number here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>Region</label> <input class="form-control" name="region" 
+				th:value="${vo.region}"/>
+				<p class="help-block">Region text here.</p>
+		</div>
+
+		<div class="form-group">
+			<label>SurfaceArea</label> <input class="form-control" name="surfacearea"
+				th:value="${vo.surfacearea}"/>
+				<p class="help-block">SurfaceArea number here.</p>
+		</div>
+		
+		<input type='hidden' name="page" th:value="${pageVO.page}">
+		<input type='hidden' name="size" th:value="${pageVO.size}">
+		<input type='hidden' name="type" th:value="${pageVO.type}">
+		<input type='hidden' name="keyword" th:value="${pageVO.keyword}">
+		
+		</form>
+
+
+		<div class="pull-right">
+		
+		  <a href="#" class="btn btn-warning modbtn">Modify</a>
+		
+		  <a href="#" class="btn btn-danger delbtn">Delete</a>
+
+			<a th:href="@{ list(page=${pageVO.page}, 
+			                size=${pageVO.size}, 
+			                type=${pageVO.type}, 
+			                keyword=${pageVO.keyword},
+			                code = ${vo.code}
+			             )}" class="btn btn-primary">Cancel & Go List</a> 
+		</div>
+
+	</div>
+
+</div>
+<!--  end fragment -->
+
+<th:block layout:fragment="script">
+
+	<script th:inline="javascript">
+	$(document).ready(function(){
+	
+		var formObj = $("#f1");
+		
+		$(".delbtn").click(function(){
+			
+			formObj.attr("action","delete");
+			formObj.attr("method", "post");
+			
+			formObj.submit();
+			
+		});
+		
+		$(".modbtn").click(function(){
+			
+			formObj.attr("action","modify");
+			formObj.attr("method", "post");
+			
+			formObj.submit();
+			
+		});
+		
+		
+	});	
+	</script>
+
+</th:block>

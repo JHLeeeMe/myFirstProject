@@ -11,12 +11,12 @@
 
 			<div class="form-group">
 				<label>Empno</label>
-				<input class="form-control" name="empno" />
+				<input class="form-control" name="empno" th:value="${vo.empno}"/>
 			</div>
 
 			<div class="form-group">
 				<label>Ename</label>
-				<input class="form-control" name="ename" />
+				<input class="form-control" name="ename" th:value="${vo.ename}" />
 			</div>
 
 			<div class="form-group">
@@ -48,23 +48,23 @@
 			
 			<div class="form-group">
 				<label>Hiredate</label>
-				<input class="form-control" name="hiredate" />
+				<input class="form-control" name="hiredate" th:value="${#dates.format(vo.hiredate, 'MM/dd/yyyy')}"/>
 				<p class="help-block">mm/dd/yyyy</p>
 			</div>
 			
 			<div class="form-group">
 				<label>Sal</label>
-				<input class="form-control" name="sal" />
+				<input class="form-control" name="sal" th:value="${vo.sal}"/>
 			</div>
 			
 			<div class="form-group">
 				<label>Comm</label>
-				<input class="form-control" name="comm" />
+				<input class="form-control" name="comm" th:value="${vo.comm}" />
 			</div>
 			
 			<div class="form-group">
 				<label>Mgr</label>
-				<input class="form-control" name="mgr" />
+				<input class="form-control" name="mgr" th:value="${vo.mgr}" />
 			</div>
 
 			<button type="submit" class="btn btn-default">Submit Button</button>

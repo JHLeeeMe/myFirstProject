@@ -11,13 +11,7 @@
 	
 <div layout:fragment="content">
 
-	<div class="panel-heading">List Page</div>
-
-	<div class="panel-body pull-right">
-		<h3>
-			<a class="label label-default " th:href="@{register}">Register</a>
-		</h3>
-	</div>
+	<div class="panel-heading">Depts List Page</div>
 
 	<div class="panel-body">
 		<div th:with="result=${pageMaker.result}">
@@ -43,11 +37,17 @@
 			<div>
 				<select id='searchType'>
 					<option>--</option>
-					<option value='no' th:selected="${pageVO.type} =='no'">Deptno</option>
-					<option value='na' th:selected="${pageVO.type} =='na'">Dname</option>
-					<option value='l' th:selected="${pageVO.type} =='l'">Loc</option>
+					<option value='no' th:selected="${pageVO.type} =='no'">부서번호</option>
+					<option value='na' th:selected="${pageVO.type} =='na'">부서이름</option>
+					<option value='l' th:selected="${pageVO.type} =='l'">지역</option>
 				</select> <input type='text' id='searchKeyword' th:value="${pageVO.keyword}">
 				<button id='searchBtn'>Search</button>
+				
+				<div class="panel-body pull-right">
+					<h3>
+						<a class="label label-default" th:href="@{register}">Register</a>
+					</h3>
+				</div>
 			</div>
 			
 		</div>
@@ -55,18 +55,25 @@
 		<nav>
 			<div>
 				<ul class="pagination">
-					<li class="page-item" th:if="${pageMaker.prevPage}"><a
-						th:href="${pageMaker.prevPage.pageNumber} + 1"> PREV
-							[[${pageMaker.prevPage.pageNumber} + 1]] </a></li>
+					<li class="page-item" th:if="${pageMaker.prevPage}">
+						<a th:href="${pageMaker.prevPage.pageNumber} + 1"> 
+							PREV [[${pageMaker.prevPage.pageNumber} + 1]] 
+						</a>
+					</li>
 
 					<li class="page-item"
 						th:classappend="${p.pageNumber == pageMaker.currentPageNum -1}?active: '' "
-						th:each="p:${pageMaker.pageList}"><a
-						th:href="${p.pageNumber} +1"> [[${p.pageNumber} +1]] </a></li>
+						th:each="p:${pageMaker.pageList}">
+						<a th:href="${p.pageNumber} +1"> 
+							[[${p.pageNumber} +1]] 
+						</a>
+					</li>
 
-					<li class="page-item" th:if="${pageMaker.nextPage}"><a
-						th:href="${pageMaker.nextPage.pageNumber} + 1"> NEXT
-							[[${pageMaker.nextPage.pageNumber} + 1]] </a></li>
+					<li class="page-item" th:if="${pageMaker.nextPage}">
+						<a th:href="${pageMaker.nextPage.pageNumber} + 1"> 
+							NEXT [[${pageMaker.nextPage.pageNumber} + 1]] 
+						</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -75,15 +82,14 @@
 
 	<form id='f1' th:action="@{list}" method="get">
 		<input type='hidden' name='page' th:value=${pageMaker.currentPageNum}>
-		<input type='hidden' name='size'
-			th:value=${pageMaker.currentPage.pageSize}> <input
-			type='hidden' name='type' th:value=${pageVO.type}> <input
-			type='hidden' name='keyword' th:value=${pageVO.keyword}>
+		<input type='hidden' name='size' th:value=${pageMaker.currentPage.pageSize}> 
+		<input type='hidden' name='type' th:value=${pageVO.type}> 
+		<input type='hidden' name='keyword' th:value=${pageVO.keyword}>
 	</form>
 
 </div>
-
 <!--  end fragment -->
+
 <th:block layout:fragment="script">
 
 	<script th:inline="javascript">
@@ -91,7 +97,6 @@
 		$(window).load(function(){
 			
 			var msg = [[${msg}]];
-			
 			
 			if(msg =='success') {
 				alert("정상적으로 처리되었습니다.");

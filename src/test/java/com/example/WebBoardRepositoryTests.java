@@ -12,8 +12,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.ui.Model;
 
 import com.example.domain.WebBoard;
+import com.example.persistence.CountryRepository;
 import com.example.persistence.WebBoardRepository;
 import com.example.vo.PageMaker;
 
@@ -27,6 +29,9 @@ public class WebBoardRepositoryTests {
 
 	@Autowired
 	WebBoardRepository repo;
+	
+	@Autowired
+	CountryRepository Crepo;
 
 	@Test
 	public void insertBoardDummies() {
@@ -97,5 +102,5 @@ public class WebBoardRepositoryTests {
 		log.info("next page: " +  pgMaker.getNextPage());
 
 	}
-
+	
 }

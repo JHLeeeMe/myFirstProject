@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset=UTF-8>
-	<title>board list.jsp</title>
+	<title>emp list.jsp</title>
 
 	<!-- For Content-Assist -->
 	<c:if test="${false}">
@@ -16,7 +16,7 @@
 	</c:if>
 </head>
 <body>
-	<div class="panel-heading">Board List Page</div>
+	<div class="panel-heading">Emp List Page</div>
 
 	<div class="panel-body">
 		<c:set var="result" value="${pageMaker.result}"/>
@@ -24,21 +24,31 @@
 			<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 				<thead>
 					<tr>
-						<th>BNO</th>
-						<th>TITLE</th>
-						<th>WRITER</th>
-						<th>REGDATE</th>
+						<th>직원번호</th>
+						<th>이름</th>
+						<th>성별</th>
+						<th>직급</th>
+						<th>입사일</th>
+						<th>급여</th>
+						<th>보너스</th>
+						<th>사수번호</th>
+						<th>부서번호</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="board" items="${result.content}">
 						<tr class="odd gradeX">
-							<td>${board.bno}</td>
-							<td><a href='${board.bno}' class='boardLink'>${board.title}</a></td>
-							<td>${board.writer}</td>
+							<td>${board.empno}</td>
+							<td><a href='${board.empno}' class='boardLink'>${board.ename}</a></td>
+							<td>${board.gender}</td>
+							<td>${board.job}</td>
 							<td class="center">
-								<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd" />
+								<fmt:formatDate value="${board.hiredate}" pattern="yyyy-MM-dd" />
 							</td>
+							<td>${board.sal}</td>
+							<td>${board.comm}</td>
+							<td>${board.mgr.empno}</td>
+							<td>${board.dept.deptno}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -48,15 +58,16 @@
 			<div>
 				<select id='searchType'>
 					<option>--</option>
-					<option value='t' ${pageVO.type == 't' ? 'selected' : ''}>Title</option>
-					<option value='c' ${pageVO.type == 'c' ? 'selected' : ''}>Content</option>
-					<option value='w' ${pageVO.type == 'w' ? 'selected' : ''}>Writer</option>
+					<option value='no' ${pageVO.type == 'no' ? 'selected' : ''}>직원번호</option>
+					<option value='na' ${pageVO.type == 'na' ? 'selected' : ''}>이름</option>
+					<option value='j' ${pageVO.type == 'j' ? 'selected' : ''}>직급</option>
+					<option value='dno' ${pageVO.type == 'dno' ? 'selected' : ''}>부서번호</option>
 				</select> 
 				<input type='text' id='searchKeyword' value="${pageVO.keyword}">
 				<button id='searchBtn'>Search</button>
 				
 				<div class="panel-body pull-right">
-					<h3><a class="label label-default " href="/board/register">Register</a></h3>
+					<h3><a class="label label-default" href="/emp/register">Register</a></h3>
 				</div>
 			</div>
 		</div>
@@ -91,7 +102,7 @@
 
 	</div>
 	
-	<form id='f1' action="/board/list" method="get">
+	<form id='f1' action="/emp/list" method="get">
 		<input type='hidden' name='page' value="${pageMaker.currentPageNum}">
 		<input type='hidden' name='size' value="${pageMaker.currentPage.pageSize}"> 
 		<input type='hidden'	name='type' value="${pageVO.type}">

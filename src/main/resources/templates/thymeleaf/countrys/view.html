@@ -1,0 +1,108 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/boards}">
+
+<!-- layout1.html과 합쳐지기 위한 코딩 -->
+<div layout:fragment="content">
+
+	<div class="panel-heading">View Page</div>
+	<div class="panel-body">
+
+		<div class="form-group">
+			<label>Code</label> <input class="form-control" name="code"
+				th:value="${vo.code}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>Capital</label> <input class="form-control" name="capital"
+				th:value="${vo.capital}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>Code2</label> <input class="form-control" name="code2"
+				th:value="${vo.code2}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>Continent</label> <input class="form-control" name="continent"
+				th:value="${vo.continent}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>Gnp</label> <input class="form-control" name="gnp"
+				th:value="${vo.gnp}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>GnpOld</label> <input class="form-control" name="gnpold"
+				th:value="${vo.gnpold}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>GovernmentForm</label> <input class="form-control" name="governmentform"
+				th:value="${vo.governmentform}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>HeadOfState</label> <input class="form-control" name="headofstate" 
+				th:value="${vo.headofstate}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>LocalName</label> <input class="form-control" name="localname" 
+				th:value="${vo.localname}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>Name</label> <input class="form-control" name="name" 
+				th:value="${vo.name}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>LifeExpectancy</label> <input class="form-control" name="lifeexpectancy"
+				th:value="${vo.lifeexpectancy}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>Population</label> <input class="form-control" name="population"
+				th:value="${vo.population}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>Region</label> <input class="form-control" name="region" 
+				th:value="${vo.region}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>SurfaceArea</label> 
+			<input class="form-control" name="surfacearea" th:value="${vo.surfacearea}" readonly="readonly" />
+		</div>
+
+		<div class="pull-right">
+			<a th:href="@{ modify(page=${pageVO.page}, 
+			                size=${pageVO.size}, 
+			                type=${pageVO.type}, 
+			                keyword=${pageVO.keyword},
+			                code =${vo.code}
+			             )}" class="btn btn-default">Modify/Delete</a> 
+			             
+			<a th:href="@{ list(page=${pageVO.page}, 
+			                size=${pageVO.size}, 
+			                type=${pageVO.type}, 
+			                keyword=${pageVO.keyword},
+			                code = ${vo.code}
+			             )}" class="btn btn-primary">Go List</a> 
+		</div>
+
+	</div>
+
+</div>
+<!--  end fragment -->
+
+<th:block layout:fragment="script">
+
+	<script th:inline="javascript">
+		
+	</script>
+
+</th:block>

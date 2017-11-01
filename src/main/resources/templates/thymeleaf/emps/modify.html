@@ -7,81 +7,76 @@
 	<div class="panel-heading">Modify Page</div>
 	<div class="panel-body">
 
-    <form id='f1'>
-
-		<div class="form-group">
-			<label>직원번호</label> 
-			<input class="form-control" name="empno" th:value="${vo.empno}" readonly="readonly" />
-		</div>
-		
-		<div class="form-group">
-			<label>직원이름</label> 
-			<input class="form-control" name="ename" th:value="${vo.ename}" />
-		</div>
-		
-		<div class="form-group">
-			<label>성별</label> 
-			<select name="gender" th:value="${vo.gender}">
-				<option selected="selected">[[${vo.gender}]]</option>
-				<option th:if="${vo.gender != 'M'}">M</option>
-				<option th:if="${vo.gender != 'F'}">F</option>
-			</select>
-			
-			<label>직급</label>
-			<select name="job" th:value="${vo.job}">
-				<option selected="selected">[[${vo.job}]]</option>
-				<option th:if="${vo.job != '부장'}">부장</option>
-				<option th:if="${vo.job != '차장'}">차장</option>
-				<option th:if="${vo.job != '과장'}">과장</option>
-				<option th:if="${vo.job != '대리'}">대리</option>
-				<option th:if="${vo.job != '사원'}">사원</option>
-			</select>
-			
-			<label>부서번호</label>
-			<select name="deptno" th:value="${vo.dept?.deptno}">
-				<option selected="selected">[[${vo.dept?.deptno}]]</option>
-				<option th:if="${vo.dept?.deptno != 10}">10</option>
-				<option th:if="${vo.dept?.deptno != 20}">20</option>
-				<option th:if="${vo.dept?.deptno != 30}">30</option>
-			</select>
-		</div>
-		
-		<div class="form-group">
-			<label>입사일</label> 
-			<input class="form-control" name="hiredate" th:value="${vo.hiredate}" />
-			<p class="help-block">mm/dd/yyyy</p>
-		</div>
-		
-		<div class="form-group">
-			<label>급여</label> 
-			<input class="form-control" name="sal" th:value="${vo.sal}" />
-		</div>
-		
-		<div class="form-group">
-			<label>보너스</label>
-			<div th:if="${vo.comm} != null"> 
-				<input class="form-control" name="comm" th:value="${vo.comm}" />
+	    <form id='f1'>
+	
+			<div class="form-group">
+				<label>직원번호</label> 
+				<input class="form-control" name="empno" th:value="${vo.empno}" />
 			</div>
-			<div th:if="${vo.comm} == null">
-				<input class="form-control" name="comm" th:value="${vo.comm}" readonly="readonly"/>
+			
+			<div class="form-group">
+				<label>직원이름</label> 
+				<input class="form-control" name="ename" th:value="${vo.ename}" />
 			</div>
-		</div>
-		
-		<div class="form-group">
-			<label>사수번호</label> 
-			<input class="form-control" name="mgr" th:value="${vo.mgr?.empno}" readonly="readonly" />
-		</div>
-		
-		<div class="form-group">
-			<label>부서번호</label> 
-			<input class="form-control" name="deptno" th:value="${vo.dept?.deptno}" readonly="readonly" />
-		</div>
-
-		<input type='hidden' name="page" th:value="${pageVO.page}">
-		<input type='hidden' name="size" th:value="${pageVO.size}">
-		<input type='hidden' name="type" th:value="${pageVO.type}">
-		<input type='hidden' name="keyword" th:value="${pageVO.keyword}">
-		
+			
+			<div class="form-group">
+				<label>성별</label> 
+				<select name="gender" th:value="${vo.gender}">
+					<option>[[${vo.gender.name()} == 'F' ? 'F' : 'M']]</option>
+					<option th:selected="${vo.gender} == 'M'">M</option>
+					<option th:selected="${vo.gender} == 'F'">F</option>
+				</select>
+				
+				<label>직급</label>
+				<select name="job" th:value="${vo.job}">
+					<option selected="selected">[[${vo.job}]]</option>
+					<option th:if="${vo.job != '부장'}">부장</option>
+					<option th:if="${vo.job != '차장'}">차장</option>
+					<option th:if="${vo.job != '과장'}">과장</option>
+					<option th:if="${vo.job != '대리'}">대리</option>
+					<option th:if="${vo.job != '사원'}">사원</option>
+				</select>
+				
+				<label>부서번호</label>
+				<select name="deptno" th:value="${vo.dept?.deptno}">
+					<option selected="selected">[[${vo.dept?.deptno}]]</option>
+					<option th:if="${vo.dept?.deptno != 10}">10</option>
+					<option th:if="${vo.dept?.deptno != 20}">20</option>
+					<option th:if="${vo.dept?.deptno != 30}">30</option>
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<label>입사일</label> 
+				<input class="form-control" name="hiredate" th:value="${#dates.format(vo.hiredate, 'MM/dd/yyyy')}" />
+				<p class="help-block">MM/dd/yyyy</p>
+			</div>
+			
+			<div class="form-group">
+				<label>급여</label> 
+				<input class="form-control" name="sal" th:value="${vo.sal}" />
+			</div>
+			
+			<div class="form-group">
+				<label>보너스</label>
+				<div th:if="${vo.comm} != null"> 
+					<input class="form-control" name="comm" th:value="${vo.comm}" />
+				</div>
+				<div th:if="${vo.comm} == null">
+					<input class="form-control" name="comm" th:value="${vo.comm}" readonly="readonly"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label>사수번호</label> 
+				<input class="form-control" name="mgr" th:value="${vo.mgr?.empno}"/>
+			</div>
+			
+			<input type='hidden' name="page" th:value="${pageVO.page}">
+			<input type='hidden' name="size" th:value="${pageVO.size}">
+			<input type='hidden' name="type" th:value="${pageVO.type}">
+			<input type='hidden' name="keyword" th:value="${pageVO.keyword}">
+			
 		</form>
 
 		<div class="pull-right">

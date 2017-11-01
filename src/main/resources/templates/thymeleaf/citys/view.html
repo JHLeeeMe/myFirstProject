@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/boards}">
+
+<!-- layout1.html과 합쳐지기 위한 코딩 -->
+<div layout:fragment="content">
+
+	<div class="panel-heading">View Page</div>
+	<div class="panel-body">
+
+
+		<div class="form-group">
+			<label>ID</label> <input class="form-control" name="id"
+				th:value="${vo.id}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>Name</label> <input class="form-control" name="name"
+				th:value="${vo.name}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>District</label> <input class="form-control" name="district"
+				th:value="${vo.district}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>Population</label> <input class="form-control" name="population"
+				th:value="${vo.population}" readonly="readonly" />
+		</div>
+
+		<div class="form-group">
+			<label>CountryCode</label> <input class="form-control" name="code" 
+				th:value="${vo.country.code}" readonly="readonly"/>
+		</div>
+
+
+		<div class="pull-right">
+			<a th:href="@{ modify(page=${pageVO.page}, 
+			                size=${pageVO.size}, 
+			                type=${pageVO.type}, 
+			                keyword=${pageVO.keyword},
+			                id =${vo.id}
+			             )}" class="btn btn-default">Modify/Delete</a> 
+			             
+			<a th:href="@{ list(page=${pageVO.page}, 
+			                size=${pageVO.size}, 
+			                type=${pageVO.type}, 
+			                keyword=${pageVO.keyword},
+			                id = ${vo.id}
+			             )}" class="btn btn-primary">Go List</a> 
+		</div>
+
+	</div>
+
+</div>
+<!--  end fragment -->
+
+<th:block layout:fragment="script">
+
+	<script th:inline="javascript">
+		
+	</script>
+
+</th:block>

@@ -7,6 +7,7 @@ import com.example.domain.Emp;
 import com.example.domain.QDept;
 import com.example.domain.QEmp;
 import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.Expression;
 import com.querydsl.core.types.Predicate;
 
 public interface EmpRepository extends JpaRepository<Emp, Long>, QuerydslPredicateExecutor<Emp> {
@@ -32,9 +33,6 @@ public interface EmpRepository extends JpaRepository<Emp, Long>, QuerydslPredica
 		case "na":
 			builder.and(emp.ename.like("%" + keyword + "%"));
 			break;
-//		case "g":
-//			builder.and(emp.gender.eq((EnumPath<Emp.Gender>)("%" + keyword + "%"));
-//			break;
 		case "j":
 			builder.and(emp.job.like("%" + keyword + "%"));
 			break;
