@@ -5,9 +5,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 import lombok.Data;
 import lombok.ToString;
@@ -18,6 +21,12 @@ import lombok.ToString;
 @ToString(exclude = { "citys" })
 public class Country {
 
+	@TableGenerator(name="idGen", table="id_gen",
+			  pkColumnName="seq_name",
+			  valueColumnName="nextval",
+			  allocationSize=1, initialValue=1)
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="idGen")
+	private Long bno;
 	@Id
 	private String code;
 	private Float gnpold;

@@ -40,7 +40,9 @@ public interface CountryRepository extends JpaRepository<Country, String>, Query
 		case "localname":
 			builder.and(country.localname.like("%" + keyword + "%"));
 			break;
-			
+		case "population":
+			builder.and(country.population.gt(Integer.parseInt(keyword)));
+			break;
 		}
 		return builder;
 	}

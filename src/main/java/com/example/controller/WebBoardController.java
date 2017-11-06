@@ -116,4 +116,22 @@ public class WebBoardController{
 		return "redirect:/board/view";
 	}
 	
+	@PostMapping("/delete")
+	public String delete(Long bno, PageVO vo, RedirectAttributes rttr) {
+
+		log.info("DELETE BNO: " + bno);
+
+		repo.deleteById(bno);
+
+		rttr.addFlashAttribute("msg", "success");
+
+		// 페이징과 검색했던 결과로 이동하는 경우
+		rttr.addAttribute("page", vo.getPage());
+		rttr.addAttribute("size", vo.getSize());
+		rttr.addAttribute("type", vo.getType());
+		rttr.addAttribute("keyword", vo.getKeyword());
+
+		return "redirect:/boards/list";
+	}
+	
 }

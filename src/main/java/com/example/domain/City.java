@@ -4,11 +4,13 @@ package com.example.domain;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import javax.persistence.TableGenerator;
 
 import lombok.Data;
 import lombok.ToString;
@@ -19,6 +21,12 @@ import lombok.ToString;
 @ToString(exclude = { "country" }) // ToString 메소드 생성, exclude = { "country" } ==> country는 제외
 public class City {
 
+	@TableGenerator(name="idGen", table="id_gen",
+			  pkColumnName="seq_name",
+			  valueColumnName="nextval",
+			  allocationSize=1, initialValue=1)
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="idGen")
+	private Long bno;
 	@Id
 	private Integer id;
 	private String name;
