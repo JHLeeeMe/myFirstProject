@@ -35,9 +35,6 @@
 							<td>${dept.deptno}</td>
 							<td><a href='${dept.deptno}' class='boardLink'>${dept.dname}</a></td>
 							<td>${dept.loc}</td>
-							<td class="center">
-								<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd" />
-							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
