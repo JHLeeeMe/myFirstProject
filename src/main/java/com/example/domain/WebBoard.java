@@ -28,9 +28,9 @@ public class WebBoard {
 
 	@Id
 	@TableGenerator(name="idGen", table="id_gen", 
-					  pkColumnName="seq_name",
-					  valueColumnName="nextval",
-					  allocationSize=10, initialValue=100)
+						pkColumnName="seq_name",
+					   valueColumnName="nextval",
+					   allocationSize=10, initialValue=100)
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="idGen")
 	private Long bno;
 	private String title;

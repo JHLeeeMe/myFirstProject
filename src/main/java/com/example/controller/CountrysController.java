@@ -75,7 +75,7 @@ public class CountrysController {
 		
 		log.info("Modify Country: " + country);
 		
-		repo.findById(country.getCode()).ifPresent( origin ->{
+		repo.findById(country.getCode()).ifPresent( origin -> {
 			
 			origin.setCode(country.getCode());
 			origin.setCapital(country.getCapital());
