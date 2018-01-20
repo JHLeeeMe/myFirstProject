@@ -36,19 +36,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="board" items="${result.content}">
+					<c:forEach var="emp" items="${result.content}">
 						<tr class="odd gradeX">
-							<td>${board.empno}</td>
-							<td><a href='${board.empno}' class='boardLink'>${board.ename}</a></td>
-							<td>${board.gender}</td>
-							<td>${board.job}</td>
+							<td>${emp.empno}</td>
+							<td><a href='${emp.empno}' class='empLink'>${emp.ename}</a></td>
+							<td>${emp.gender}</td>
+							<td>${emp.job}</td>
 							<td class="center">
-								<fmt:formatDate value="${board.hiredate}" pattern="yyyy-MM-dd" />
+								<fmt:formatDate value="${emp.hiredate}" pattern="yyyy-MM-dd" />
 							</td>
-							<td>${board.sal}</td>
-							<td>${board.comm}</td>
-							<td>${board.mgr.empno}</td>
-							<td>${board.dept.deptno}</td>
+							<td>${emp.sal}</td>
+							<td>${emp.comm}</td>
+							<td>${emp.mgr.empno}</td>
+							<td>${emp.dept.deptno}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -105,8 +105,8 @@
 	<form id='f1' action="/emp/list" method="get">
 		<input type='hidden' name='page' value="${pageMaker.currentPageNum}">
 		<input type='hidden' name='size' value="${pageMaker.currentPage.pageSize}"> 
-		<input type='hidden'	name='type' value="${pageVO.type}">
-		<input type='hidden'	name='keyword' value="${pageVO.keyword}">
+		<input type='hidden' name='type' value="${pageVO.type}">
+		<input type='hidden' name='keyword' value="${pageVO.keyword}">
 	</form>
 	
 	<script type="text/javascript">
@@ -135,14 +135,14 @@
 				formObj.submit();
 			});
 			
-			$(".boardLink").click(function(e){
+			$(".empLink").click(function(e){
 				
 				e.preventDefault(); 
 				
-				var boardNo = $(this).attr("href");
+				var empNo = $(this).attr("href");
 				
-				formObj.attr("action","/board/view");
-				formObj.append("<input type='hidden' name='bno' value='" + boardNo +"'>" );
+				formObj.attr("action","/emp/view");
+				formObj.append("<input type='hidden' name='empno' value='" + empNo +"'>" );
 				
 				formObj.submit();
 				

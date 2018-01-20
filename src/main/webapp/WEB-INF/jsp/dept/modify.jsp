@@ -21,26 +21,21 @@
 	    <form id='f1'>
 	
 			<div class="form-group">
-				<label>BNO</label> 
-				<input class="form-control" name="bno" value="${vo.bno}" readonly="readonly" />
+				<label>Deptno</label> 
+				<input class="form-control" name="deptno" value="${vo.deptno}" readonly="readonly" />
 			</div>
 	
 			<div class="form-group">
-				<label>Title</label> 
-				<input class="form-control" name="title" value="${vo.title}" />
-				<p class="help-block">Title text here.</p>
+				<label>Dname</label> 
+				<input class="form-control" name="dname" value="${vo.dname}" />
+				<p class="help-block">Dname text here.</p>
 			</div>
 	
 			<div class="form-group">
-				<label>Content</label>
-				<textarea class="form-control" rows="3" name='content'>${vo.content}</textarea>
+				<label>Loc</label>
+				<input class="form-control" name="Loc" value="${vo.loc}">
 			</div>
 	
-			<div class="form-group">
-				<label>Writer</label> 
-				<input class="form-control" name="writer" value="${vo.writer}" readonly="readonly" />
-			</div>
-			
 			<input type='hidden' name="page" value="${pageVO.page}">
 			<input type='hidden' name="size" value="${pageVO.size}">
 			<input type='hidden' name="type" value="${pageVO.type}">
@@ -48,30 +43,20 @@
 			
 			</form>
 	
-			<div class="form-group">
-				<label>RegDate</label> 
-				<fmt:formatDate var="regdate" value="${vo.regdate}" pattern="yyyy-MM-dd"/>
-				<input class="form-control" name="regDate" value="${regdate}" readonly="readonly" />
-			</div>
-	
 			<div class="pull-right">
 			
 				<a href="#" class="btn btn-warning modbtn">Modify</a>
 			
 				<a href="#" class="btn btn-danger delbtn">Delete</a>
 	
-				<a href="/board/list?page=${pageVO.page}&
-										size=${pageVO.size}&
-										type=${pageVO.type}&
-										keyword=${pageVO.keyword}" class="btn btn-primary">
-					Cancel & Go List
-				</a>
+				<a href="/dept/list?page=${pageVO.page}
+											&size=${pageVO.size}
+											&type=${pageVO.type}
+											&keyword=${pageVO.keyword}" class="btn btn-primary">Cancel & Go List</a>
 			 
 			</div>
-	
+			
 		</div>
-	
-	</div>
 		
 	<script type="text/javascript">
 		$(document).ready(function(){

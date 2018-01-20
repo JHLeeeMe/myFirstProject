@@ -124,16 +124,16 @@
             formObj.submit();
          });
          
-         $(".cityLink").click(function(e){
+       $(".cityLink").click(function(e){
             
-            e.preventDefault(); 
+       		e.preventDefault(); 
             
-            var cityNo = $(this).attr("href");
+           var cityNo = $(this).attr("href");
             
-            formObj.attr("action", "/city/view");
-            formObj.append("<input type='hidden' name='id' value='" + cityNo +"'>" );
+           formObj.attr("action", "/city/view");
+           formObj.append("<input type='hidden' name='id' value='" + cityNo +"'>" );
             
-            formObj.submit();
+           formObj.submit();
             
          });
          

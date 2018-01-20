@@ -33,7 +33,7 @@
 				<div class="form-group">
 					<label>성별</label> 
 					<select name="gender" value="${vo.gender}">
-						<option>${vo.gender.name()} == 'F' ? 'F' : 'M'</option>
+						<option>${vo.gender.name()}</option>
 						<option value='M' ${pageVO.type == 'M' ? 'selected' : ''}>M</option>
 						<option value='M' ${pageVO.type == 'F' ? 'selected' : ''}>F</option>
 					</select>
@@ -48,16 +48,17 @@
 					</select>
 					
 					<label>부서번호</label>
-					<select name="deptno" value="${vo.dept?.deptno}">
-						<option ${vo.dept?.deptno == '10' ? 'selected' : ''}>10</option>
-						<option ${vo.dept?.deptno == '20' ? 'selected' : ''}>20</option>
-						<option ${vo.dept?.deptno == '30' ? 'selected' : ''}>30</option>
+					<select name="deptno" value="${vo.dept.deptno}">
+						<option ${vo.dept.deptno == '10' ? 'selected' : ''}>10</option>
+						<option ${vo.dept.deptno == '20' ? 'selected' : ''}>20</option>
+						<option ${vo.dept.deptno == '30' ? 'selected' : ''}>30</option>
 					</select>
 				</div>
 				
 				<div class="form-group">
-					<label>입사일</label> 
-					<input class="form-control" name="hiredate" value=<fmt:formatDate value="${vo.hiredate}" pattern="MM/dd/yyyy"/> />
+					<label>입사일</label>
+					<fmt:formatDate value="${vo.hiredate}" pattern="MM/dd/yyyy"/> 
+					<input class="form-control" name="hiredate" value="${vo.hiredate}" />
 					<p class="help-block">MM/dd/yyyy</p>
 				</div>
 				
@@ -78,7 +79,7 @@
 				
 				<div class="form-group">
 					<label>사수번호</label> 
-					<input class="form-control" name="mgr" value="${vo.mgr?.empno}"/>
+					<input class="form-control" name="mgr" value="${vo.mgr.empno}"/>
 				</div>
 				
 				<input type='hidden' name="page" value="${pageVO.page}">
@@ -105,8 +106,6 @@
 	
 		</div>
 	
-	</div>
-		
 	<script type="text/javascript">
 		$(document).ready(function(){
 		
@@ -129,7 +128,6 @@
 				formObj.submit();
 				
 			});
-			
 			
 		});	
 		</script>

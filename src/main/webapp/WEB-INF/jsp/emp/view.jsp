@@ -19,35 +19,54 @@
 	<div class="panel-body">
 
 		<div class="form-group">
-			<label>BNO</label> 
-			<input class="form-control" name="bno" value="${vo.bno}" readonly="readonly" />
+			<label>Empno</label> 
+			<input class="form-control" name="empno" value="${vo.empno}" readonly="readonly" />
 		</div>
 
 		<div class="form-group">
-			<label>Title</label> 
-			<input class="form-control" name="title" value="${vo.title}" readonly="readonly" />
-			<p class="help-block">Title text here.</p>
+			<label>Ename</label> 
+			<input class="form-control" name="ename" value="${vo.ename}" readonly="readonly" />
+<!-- 			<p class="help-block">Ename text here.</p> -->
 		</div>
 
 		<div class="form-group">
-			<label>Content</label>
-			<textarea class="form-control" rows="3" name='content' readonly="readonly">${vo.content}</textarea>
+			<label>Gender</label>
+			<textarea class="form-control" rows="3" name='gender' readonly="readonly">${vo.gender}</textarea>
+		</div>
+		
+		<div class="form-group">
+			<label>Job</label>
+			<textarea class="form-control" rows="3" name='job' readonly="readonly">${vo.job}</textarea>
 		</div>
 
 		<div class="form-group">
-			<label>Writer</label> 
-			<input class="form-control" name="writer" value="${vo.writer}" readonly="readonly" />
+			<label>Hiredate</label> 
+			<input class="form-control" name="hiredate" value="${vo.hiredate}" readonly="readonly" />
 		</div>
 
 		<div class="form-group">
-			<fmt:formatDate var="regdate" value="${vo.regdate}" pattern="yyyy-MM-dd"/>
-			<label>RegDate</label> 
-			<input class="form-control" name="regDate" value="${regdate}" readonly="readonly" />
+			<label>Sal</label> 
+			<input class="form-control" name="sal" value="${vo.sal}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>Comm</label> 
+			<input class="form-control" name="comm" value="${vo.comm}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>Mgr</label> 
+			<input class="form-control" name="mgr" value="${vo.mgr.empno}" readonly="readonly" />
+		</div>
+		
+		<div class="form-group">
+			<label>Deptno</label> 
+			<input class="form-control" name="deptno" value="${vo.dept.deptno}" readonly="readonly" />
 		</div>
 
 		<div class="pull-right">
-			<a href="/board/modify?page=${pageVO.page}&size=${pageVO.size}&type=${pageVO.type}&keyword=${pageVO.keyword}&bno=${vo.bno}" class="btn btn-default">Modify/Delete</a> 
-			<a href="/board/list?page=${pageVO.page}&size=${pageVO.size}&type=${pageVO.type}&keyword=${pageVO.keyword}&bno=${vo.bno}" class="btn btn-primary">Go List</a> 
+			<a href="/emp/modify?page=${pageVO.page}&size=${pageVO.size}&type=${pageVO.type}&keyword=${pageVO.keyword}&empno=${vo.empno}" class="btn btn-default">Modify/Delete</a> 
+			<a href="/emp/list?page=${pageVO.page}&size=${pageVO.size}&type=${pageVO.type}&keyword=${pageVO.keyword}&empno=${vo.empno}" class="btn btn-primary">Go List</a> 
 		</div>
 
 	</div>

@@ -18,22 +18,21 @@
 	<div class="panel-heading">Register Page</div>
 		<div class="panel-body">
 	
-			<form action="/board/register" method="post">
+			<form action="/dept/register" method="post">
 	
 				<div class="form-group">
-					<label>Title</label> 
-					<input class="form-control" name="title" value="${vo.title}" />
-					<p class="help-block">Title text here.</p>
+					<label>Deptno</label> 
+					<input class="form-control" name="deptno" value="${vo.deptno}" />
 				</div>
 	
 				<div class="form-group">
-					<label>Content</label>
-					<textarea class="form-control" rows="3" name='content'>${vo.content}</textarea>
+					<label>dname</label>
+					<input class="form-control" name="dname" value="${vo.dname}" />
 				</div>
 	
 				<div class="form-group">
-					<label>Writer</label> 
-					<input class="form-control" name="writer" value="${vo.writer}" />
+					<label>Loc</label> 
+					<input class="form-control" name="loc" value="${vo.loc}" />
 				</div>
 				
 				<button type="submit" class="btn btn-default">Submit Button</button>

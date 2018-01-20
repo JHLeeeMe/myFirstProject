@@ -81,4 +81,8 @@ select * from tbl_country;
 
 insert into tbl_country
 select * from country;
+
+select *
+  from tbl_country
+ where name="Charlotte Amalie";
  

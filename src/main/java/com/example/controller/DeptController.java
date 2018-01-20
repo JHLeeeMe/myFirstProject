@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.domain.Dept;
-import com.example.domain.WebBoard;
 import com.example.persistence.DeptRepository;
-import com.example.persistence.WebBoardRepository;
 import com.example.vo.PageMaker;
 import com.example.vo.PageVO;
 import com.querydsl.core.types.Predicate;

@@ -19,35 +19,35 @@
 	<div class="panel-body">
 
 		<div class="form-group">
-			<label>BNO</label> 
-			<input class="form-control" name="bno" value="${vo.bno}" readonly="readonly" />
+			<label>Deptno</label> 
+			<input class="form-control" name="deptno" value="${vo.deptno}" readonly="readonly" />
 		</div>
 
 		<div class="form-group">
-			<label>Title</label> 
-			<input class="form-control" name="title" value="${vo.title}" readonly="readonly" />
-			<p class="help-block">Title text here.</p>
+			<label>Dname</label> 
+			<input class="form-control" name="dname" value="${vo.dname}" readonly="readonly" />
+			<p class="help-block">Dname text here.</p>
 		</div>
 
 		<div class="form-group">
-			<label>Content</label>
-			<textarea class="form-control" rows="3" name='content' readonly="readonly">${vo.content}</textarea>
-		</div>
-
-		<div class="form-group">
-			<label>Writer</label> 
-			<input class="form-control" name="writer" value="${vo.writer}" readonly="readonly" />
-		</div>
-
-		<div class="form-group">
-			<fmt:formatDate var="regdate" value="${vo.regdate}" pattern="yyyy-MM-dd"/>
-			<label>RegDate</label> 
-			<input class="form-control" name="regDate" value="${regdate}" readonly="readonly" />
+			<label>Loc</label>
+			<input class="form-control" name='loc' value="${vo.loc}" readonly="readonly" />
 		</div>
 
 		<div class="pull-right">
-			<a href="/board/modify?page=${pageVO.page}&size=${pageVO.size}&type=${pageVO.type}&keyword=${pageVO.keyword}&bno=${vo.bno}" class="btn btn-default">Modify/Delete</a> 
-			<a href="/board/list?page=${pageVO.page}&size=${pageVO.size}&type=${pageVO.type}&keyword=${pageVO.keyword}&bno=${vo.bno}" class="btn btn-primary">Go List</a> 
+			<a href="/dept/modify?page=${pageVO.page}
+										 &size=${pageVO.size}
+										 &type=${pageVO.type}
+										 &keyword=${pageVO.keyword}
+										 &deptno=${vo.deptno}" 
+			     class="btn btn-default">Modify/Delete</a> 
+			             
+			<a href="/dept/list?page=${pageVO.page}
+										&size=${pageVO.size}
+										&type=${pageVO.type}
+										&keyword=${pageVO.keyword}
+										&deptno=${vo.deptno}"
+					class="btn btn-primary">Go List</a> 
 		</div>
 
 	</div>
