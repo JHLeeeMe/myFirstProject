@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>register.jsp</title>
+<title>City register.jsp</title>
 
 <c:if test="${false}">
 <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -14,7 +14,7 @@
 </c:if>
 </head>
 <body>
-	<div class="panel-heading">Register Page</div>
+	<div class="panel-heading">City Register Page</div>
 	<div class="panel-body">
 
 		<form action="/city/register" method="post">

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>view.jsp</title>
+<title>Country view.jsp</title>
 
 <c:if test="${false}">
 <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -14,7 +14,7 @@
 </c:if>
 </head>
 <body>
-	<div class="panel-heading">View Page</div>
+	<div class="panel-heading">Country View Page</div>
 	<div class="panel-body">
 
 		<div class="form-group">

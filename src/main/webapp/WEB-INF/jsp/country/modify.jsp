@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>modify.jsp</title>
+<title>Country modify.jsp</title>
 
 <c:if test="${false}">
 <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -14,7 +14,7 @@
 </c:if>
 </head>
 <body>
-	<div class="panel-heading">Modify Page</div>
+	<div class="panel-heading">Country Modify Page</div>
 	<div class="panel-body">
 
     <form id='f1'>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>list.jsp</title>
+<title>City list.jsp</title>
 
 <!-- list xxx -->
 <c:if test="${false}">
@@ -15,6 +15,7 @@
 </c:if>
 </head>
 <body>
+	<div class="panel-heading">City List Page</div>
 	<div class="panel-body" align="center">
 		<c:set var="result" value="${pageMaker.result}" />
 		<div>

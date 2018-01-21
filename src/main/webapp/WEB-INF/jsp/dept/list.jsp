@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset=UTF-8>
-	<title>dept list.jsp</title>
+	<title>Dept list.jsp</title>
 
 	<!-- For Content-Assist -->
 	<c:if test="${false}">

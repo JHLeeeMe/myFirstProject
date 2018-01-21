@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset=UTF-8>
-	<title>emp modify.jsp</title>
+	<title>Emp modify.jsp</title>
 
 	<c:if test="${false}">
 		<link rel="stylesheet" href="../../css/bootstrap.css">
@@ -15,7 +15,7 @@
 	</c:if>
 </head>
 <body>
-	<div class="panel-heading">Modify Page</div>
+	<div class="panel-heading">Emp Modify Page</div>
 		<div class="panel-body">
 	
 		    <form id='f1'>
@@ -32,14 +32,14 @@
 				
 				<div class="form-group">
 					<label>성별</label> 
-					<select name="gender" value="${vo.gender}">
+					<select name="gender">
 						<option>${vo.gender.name()}</option>
 						<option value='M' ${pageVO.type == 'M' ? 'selected' : ''}>M</option>
 						<option value='M' ${pageVO.type == 'F' ? 'selected' : ''}>F</option>
 					</select>
 					
 					<label>직급</label>
-					<select name="job" value="${vo.job}">
+					<select name="job">
 						<option ${vo.job == '사원' ? 'selected' : ''}>부장</option>
 						<option ${vo.job == '차장' ? 'selected' : ''}>차장</option>
 						<option ${vo.job == '과장' ? 'selected' : ''}>과장</option>
@@ -48,7 +48,7 @@
 					</select>
 					
 					<label>부서번호</label>
-					<select name="deptno" value="${vo.dept.deptno}">
+					<select name="deptno">
 						<option ${vo.dept.deptno == '10' ? 'selected' : ''}>10</option>
 						<option ${vo.dept.deptno == '20' ? 'selected' : ''}>20</option>
 						<option ${vo.dept.deptno == '30' ? 'selected' : ''}>30</option>
@@ -57,8 +57,8 @@
 				
 				<div class="form-group">
 					<label>입사일</label>
-					<fmt:formatDate value="${vo.hiredate}" pattern="MM/dd/yyyy"/> 
-					<input class="form-control" name="hiredate" value="${vo.hiredate}" />
+					<fmt:formatDate var="hiredate" value="${vo.hiredate}" pattern="MM/dd/yyyy"/> 
+					<input class="form-control" name="hiredate" value="${hiredate}" />
 					<p class="help-block">MM/dd/yyyy</p>
 				</div>
 				
