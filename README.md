@@ -15,6 +15,8 @@
 <hr>
 
 ### 게시판샘플
+**![풀영상(Youtube)](https://www.youtube.com/watch?v=zmVx4i8WdY8)**
+<br>
 ![boardsprojectgif](https://j.gifs.com/0VEN3K.gif)
 ![boardsprojectsample](https://user-images.githubusercontent.com/35649392/35327060-e12ce3ba-013b-11e8-8a8a-a4cfc6e97ceb.jpg)
 
