@@ -15,7 +15,7 @@
 <hr>
 
 ### 게시판샘플
-![boardsprojectsample](https://user-images.githubusercontent.com/35649392/35325136-30c4f01c-0136-11e8-825e-7993fddef6cf.jpg)
+![boardsprojectsample](https://user-images.githubusercontent.com/35649392/35327060-e12ce3ba-013b-11e8-8a8a-a4cfc6e97ceb.jpg)
 
 ### dendencies
 ![dependencies](https://user-images.githubusercontent.com/35649392/35325429-16f3de5e-0137-11e8-9b9c-342041bf4fb1.jpg)
