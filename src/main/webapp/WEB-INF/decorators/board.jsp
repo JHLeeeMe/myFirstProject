@@ -73,7 +73,7 @@
 			<h1>
 				<b>PORTFOLIO</b>
 			</h1>
-				<h5>Spring MVC + JPA</h5>
+				<h5>SpringBoot + JPA</h5>
 		</div>
 		
 		<div id="div_side">
