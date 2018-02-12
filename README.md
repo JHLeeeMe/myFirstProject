@@ -32,7 +32,7 @@
 ![registersequencediagram](https://user-images.githubusercontent.com/35649392/35498241-cea5ab4a-0510-11e8-8bec-5e84ba524fb3.jpg)
 ![modifysequencediagram](https://user-images.githubusercontent.com/35649392/35498240-ce7f7588-0510-11e8-8a30-ea29b30152d4.jpg)
 <br>
-### dendencies
+### dependencies
 ![dependencies](https://user-images.githubusercontent.com/35649392/35325429-16f3de5e-0137-11e8-9b9c-342041bf4fb1.jpg)
 <br>
 ### properties
